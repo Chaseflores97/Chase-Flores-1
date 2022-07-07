@@ -1,0 +1,17 @@
+.navbar {
+    margin-top: 100px;
+background-color: black;
+}
+.navbar-brand {
+    color: white;
+}
+.navbar-nav .nav-link.active{
+    color: white;
+}
+
+.nav-link {
+    color: white;
+}
+h1 {
+    margin-top: 10px;
+}
