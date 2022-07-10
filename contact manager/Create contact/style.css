@@ -1,0 +1,30 @@
+.navbar-expand-lg {
+    margin-top: 100px;
+background-color: black;
+}
+.navbar-brand {
+    color: white;
+}
+.navbar-nav .nav-link.active{
+    color: white;
+} 
+.nav-link{
+    color: white;
+} 
+.form-label{
+    font-weight: bold;
+    margin: .5vh;
+    margin-top: 2vh;
+}
+.btn-primary{
+    margin: .5vh;
+    background-color: white;
+    border-color: grey;
+    color: black;
+    margin-left: .1vh;
+    margin-top: 10px;
+
+}
+h1 {
+    margin-top: 4vh;
+}
