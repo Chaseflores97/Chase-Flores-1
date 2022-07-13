@@ -1,1 +1,1 @@
-console.log ("Welcome to View")
+console.log ("Welcome to View");
