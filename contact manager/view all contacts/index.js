@@ -1,1 +1,1 @@
-console.log("Welcome to View All")
+console.log("Welcome to View All");
