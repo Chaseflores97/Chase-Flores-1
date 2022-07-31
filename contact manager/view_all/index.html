@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Create Contact</title>
+    <title>View All Contacts</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -29,58 +29,65 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" type="button" aria-current="page" href="#"
-                >View all</a
-              >
-            </li>
-
-            <li><a class="nav-link active" href="#">Create</a></li>
+            <li class="nav-item"></li>
+            <a
+              class="nav-link active"
+              type="button"
+              aria-current="page"
+              href="#"
+              >view all</a
+            >
+            <li class="nav-item"></li>
           </ul>
         </div>
       </div>
     </nav>
-    <div class="container"><h1>Create contact</h1></div>
+    <div class="container">
+      <h1>View contacts</h1>
+      <a class="btn btn-primary" href="#" role="button">Create contact</a>
+    </div>
 
     <div class="container">
-      <form>
-        <label for="disabledTextInput" class="form-label">First Name:</label>
-        <input
-          type="text"
-          id="disabledTextInput"
-          class="form-control"
-          placeholder="Enter first name"
-        />
-        <label for="disabledTextInput" class="form-label">Last Name:</label>
-        <input
-          type="text"
-          id="disabledTextInput"
-          class="form-control"
-          placeholder="Enter last name"
-        />
-        <label for="disabledTextInput" class="form-label">Email address:</label>
-        <input
-          type="text"
-          id="disabledTextInput"
-          class="form-control"
-          placeholder="Enter email address"
-        />
-        <label for="disabledTextInput" class="form-label">Phone Number:</label>
-        <input
-          type="text"
-          id="disabledTextInput"
-          class="form-control"
-          placeholder="Enter Phone Number"
-        />
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Email</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>@twitter</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+            <td>@twitter</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry the Bird</td>
+            <td>@twitter</td>
+            <td>@twitter</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <script src="index.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
       crossorigin="anonymous"
     ></script>
+    <script src="./index.js"></script>
   </body>
 </html>
