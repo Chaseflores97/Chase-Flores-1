@@ -1,8 +1,48 @@
-const convertCelsiusToFarenheit = function (celsiusValue) {
-    return (celsiusValue * 9/5) + 32;
+
+
+const queryString = window.location.search; 
+console.log(queryString);
+
+
+const urlParams = new URLSearchParams(queryString); 
+
+const product = urlParams.get('view')
+console.log(view); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*let htmlRows = '';
+
+const savedStrings = JSON.parse(localStorage.getItem('contactObj'));
+
+for (let i = 0; i < savedStrings[i]; i++) {
+
+
+
+
+
+    '<a href = "../view/?id=' + i + '" > ' + savedStrings[i].firstN + ' < /a>';
+    '<a href = "../view/?id=' + i + '" > ' + savedStrings[i].lastName + ' < /a>';
+    '<a href = "../view/?id=' + i + '" > ' + savedStrings[i].emailInfo + ' < /a>';
+    '<a href = "../view/?id=' + i + '" > ' + savedStrings[i].phoneInfo + ' < /a>';
+
+
 
 }
-
-console.log(convertCelsiusToFarenheit(8)); 
-console.log(convertCelsiusToFarenheit(90)); 
-console.log(convertCelsiusToFarenheit(76)); 
+document.getElementById('contactInfo').innerHTML = htmlRows;*/
