@@ -13,8 +13,6 @@
     <link rel="stylesheet" href="contacts.css" />
   </head>
   <body>
-    <script src="index.js"></script>
-
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Contact Manager</a>
@@ -49,31 +47,27 @@
         </div>
       </div>
     </nav>
-    <div class="container">
+    <div class="container" >
       <h1>View contact</h1>
-      <div class="card">
-        <div class="card-header">Full name</div>
+      <div class="card" >
+        <div class="card-header" >Full name</div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">john doe</li>
+          <li class="list-group-item" id="displayFirstName"></li>
         </ul>
       </div>
       <div class="card">
-        <div class="card-header">Email</div>
+        <div class="card-header" id="emailInfo">Email</div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">John@example.com</li>
+          <li class="list-group-item" id="displayEmail"></li>
         </ul>
       </div>
       <div class="card">
         <div class="card-header">Phone number</div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">555-555-5555</li>
+          <li class="list-group-item" id="displayPhoneNumber"></li>
         </ul>
       </div>
-      <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-        crossorigin="anonymous"
-      ></script>
     </div>
+    <script src="index.js"></script>
   </body>
 </html>

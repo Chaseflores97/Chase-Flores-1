@@ -1,48 +1,44 @@
-
-
-const queryString = window.location.search; 
+const queryString = window.location.search;
 console.log(queryString);
 
+const urlParams = new URLSearchParams(queryString);
 
-const urlParams = new URLSearchParams(queryString); 
+const indexNumber = urlParams.get('id');
 
-const product = urlParams.get('view')
-console.log(view); 
+console.log(indexNumber)
 
-
-
-
+const localContacts = JSON.parse(localStorage.getItem("contactObj"));
 
 
+const viewContactInfo = function () {
+
+    let htmlFirstName = "";
+    let htmlEmail = "";
+    let htmlLastName = "";
 
 
+    const viewFirstName = localContacts[indexNumber].firstN;
+    const viewLastName = localContacts[indexNumber].lastName;
+    const viewEmail = localContacts[indexNumber].emailInfo;
+    const viewPhoneN = localContacts[indexNumber].phoneInfo;
 
 
+    htmlFirstName += "<p>"
+    htmlFirstName += "<p>" + viewFirstName + viewLastName + "</p>";
+    htmlFirstName += "</p>"
 
+    htmlEmail += "<p>"
+    htmlEmail += "<p>" + viewEmail + "</p>";
+    htmlEmail += "</p>"
 
+    htmlLastName += "<p>"
+    htmlLastName += "<p>" + viewPhoneN + "</p>";
+    htmlLastName += "</p>"
 
-
-
-
-
-
-
-/*let htmlRows = '';
-
-const savedStrings = JSON.parse(localStorage.getItem('contactObj'));
-
-for (let i = 0; i < savedStrings[i]; i++) {
-
-
-
-
-
-    '<a href = "../view/?id=' + i + '" > ' + savedStrings[i].firstN + ' < /a>';
-    '<a href = "../view/?id=' + i + '" > ' + savedStrings[i].lastName + ' < /a>';
-    '<a href = "../view/?id=' + i + '" > ' + savedStrings[i].emailInfo + ' < /a>';
-    '<a href = "../view/?id=' + i + '" > ' + savedStrings[i].phoneInfo + ' < /a>';
-
+    document.getElementById("displayFirstName").innerHTML = htmlFirstName;
+    document.getElementById("displayEmail").innerHTML = htmlEmail;
+    document.getElementById("displayPhoneNumber").innerHTML = htmlLastName;
 
 
 }
-document.getElementById('contactInfo').innerHTML = htmlRows;*/
+viewContactInfo();
