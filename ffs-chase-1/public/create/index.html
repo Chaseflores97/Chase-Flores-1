@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Create Contact</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Contact Manager</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" type="button" aria-current="page" href="#"
+                >View all</a
+              >
+            </li>
+
+            <li><a class="nav-link" href="#">Create</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container"><h1>Create contact</h1></div>
+
+    <div class="container">
+      <form>
+        <label for="disabledTextInput" class="form-label">First Name:</label>
+        <input
+          type="text"
+          id="firstName"
+          class="form-control"
+          placeholder="Enter first name"
+        />
+        <label for="disabledTextInput" class="form-label">Last Name:</label>
+        <input
+          type="text"
+          id="lastName"
+          class="form-control"
+          placeholder="Enter last name"
+        />
+        <label for="disabledTextInput" class="form-label">Email address:</label>
+        <input
+          type="text"
+          id="emailAddress"
+          class="form-control"
+          placeholder="Enter email address"
+        />
+        <label for="disabledTextInput" class="form-label">Phone Number:</label>
+        <input
+          type="text"
+          id="phoneNumber"
+          class="form-control"
+          placeholder="Enter Phone Number"
+        />
+
+        <button
+          id="clickButton"
+          onclick="saveData()"
+          type="button"
+          class="btn btn-primary"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+    <script src="/__/firebase/9.9.3/firebase-app-compat.js"></script>
+    <script src="/__/firebase/9.9.3/firebase-functions-compat.js"></script>
+    <script src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <script>
+
+      console.log("Welcome to Create!");
+
+      const saveData = function () {
+        const firstName = document.getElementById("firstName").value;
+        const lastName = document.getElementById("lastName").value;
+        const emailAddress = document.getElementById("emailAddress").value;
+        const phoneNumber = document.getElementById("phoneNumber").value;
+
+        const contactObj = {
+          firstN: firstName,
+          lastName: lastName,
+          emailInfo: emailAddress,
+          phoneInfo: phoneNumber,
+        };
+
+        console.log(contactObj);
+        const theFunctions = firebase.functions();
+        theFunctions.useEmulator("localhost", 5001);
+        console.log("About to make a network request!!!");
+        theFunctions
+          .httpsCallable("createContact")(contactObj)
+          .then((res) => {
+            console.log("network request is DONE!");
+            console.log(res);
+          });
+      };
+      
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

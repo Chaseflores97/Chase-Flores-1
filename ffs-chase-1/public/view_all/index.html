@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>View All Contacts</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Contact Manager</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item"></li>
+            <a
+              class="nav-link active"
+              type="button"
+              aria-current="page"
+              href="#"
+              >view all</a
+            >
+            <li class="nav-item"></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <h1>View contacts</h1>
+      <a class="btn btn-primary" href="#" role="button">Create contact</a>
+    </div>
+
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone Number</th>
+          </tr>
+        </thead>
+        <tbody id="contactInfo"></tbody>
+      </table>
+    </div>
+    <script src="/__/firebase/9.9.3/firebase-app-compat.js"></script>
+    <script src="/__/firebase/9.9.3/firebase-functions-compat.js"></script>
+    <script src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <script>
+      const updateRows = function (res) {
+        let htmlRows = "";
+        
+
+        let savedStrings = res.data;
+        for (let i = 0; i < savedStrings.length; i++) {
+          let id = res.data[i].id;
+          htmlRows += "<tr>";
+          htmlRows +=
+            '<td><a href ="../view/?id=' +
+            id +
+            '">' +
+            savedStrings[i].firstName +
+            "</a></td>";
+          htmlRows += "<td>" + savedStrings[i].lastName + "</td>";
+          htmlRows += "<td>" + savedStrings[i].email + "</td>";
+          htmlRows += "<td>" + savedStrings[i].phone + "</td>";
+          htmlRows += "</tr>";
+          
+        }
+
+        document.getElementById("contactInfo").innerHTML = htmlRows;
+
+        const theFunctions = firebase.functions();
+      };
+
+      const theFunctions = firebase.functions();
+
+      theFunctions.useEmulator("localhost", 5001);
+      console.log("About to make a network request!!!");
+      theFunctions
+        .httpsCallable("getAllContacts")()
+        .then((res) => {
+          console.log("network request is DONE!");
+          console.log(res);
+          updateRows(res);
+        });
+    </script>
+  </body>
+</html>
