@@ -8,6 +8,7 @@ const indexNumber = urlParams.get('id')[0];
 console.log(indexNumber)
 
 
+ 
 
 
 const viewContactInfo = function () {
@@ -22,21 +23,22 @@ const viewContactInfo = function () {
             console.log(res);
             localContacts = res;
 
-        console.log(localContacts)
+        
 
         let htmlFirstName = "";
         let htmlEmail = "";
         let htmlLastName = "";
+        
     
     
-        const viewFirstName = localContacts.data[0].firstName;
+        const viewFirstName = localContacts.data[0].firstName; 
         const viewLastName = localContacts.data[0].lastName;
         const viewEmail = localContacts.data[0].email;
         const viewPhoneN = localContacts.data[0].phone;
     
     
         htmlFirstName += "<p>"
-        htmlFirstName += "<p>" + viewFirstName + " " + viewLastName + "</p>";
+        htmlFirstName += "<p>" + viewFirstName + " " + viewLastName + "</p>"; 
         htmlFirstName += "</p>"
     
         htmlEmail += "<p>"
@@ -45,11 +47,17 @@ const viewContactInfo = function () {
     
         htmlLastName += "<p>"
         htmlLastName += "<p>" + viewPhoneN + "</p>";
-        htmlLastName += "</p>"
+        htmlLastName += "</p>" 
+        
     
+        
+        
+        
+
         document.getElementById("displayFirstName").innerHTML = htmlFirstName;
         document.getElementById("displayEmail").innerHTML = htmlEmail;
         document.getElementById("displayPhoneNumber").innerHTML = htmlLastName;
+         
     
     
     
@@ -58,5 +66,5 @@ const viewContactInfo = function () {
 
 
 
-}
-viewContactInfo();
+};
+viewContactInfo(); 
