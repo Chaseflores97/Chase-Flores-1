@@ -27,24 +27,27 @@ exports.getAllContacts = functions.https.onCall(async (body, context) => {
 
     // execute the query 
 
-    
+
     const runQuery = new Promise((accept, reject) => {
 
-    
 
-        connection.query("SELECT * FROM contacts" , function (err, result, fields) {
+
+
+        connection.query("SELECT * FROM contacts", function (err, result, fields) {
             if (err) {
                 reject();
             } else {
                 accept(result);
             }
         });
+
+
     });
 
     const resultSet = await runQuery;
 
-return resultSet;
-    
+    return resultSet;
+
 
 
 
@@ -52,7 +55,7 @@ return resultSet;
 });
 exports.getContact = functions.https.onCall(async (payload, context) => {
 
-    
+
 
 
     // connect to the MYSQL database!
@@ -79,14 +82,25 @@ exports.getContact = functions.https.onCall(async (payload, context) => {
     await connectToMySQL;
 
     // execute the query
-    const runQuery = new Promise((accept, reject) => {
-        connection.query("SELECT * FROM contacts WHERE id = "+payload+"",function (err, result, fields) {
+    const runQuery = new Promise((accept, reject) => { 
+
+         connection.query("SELECT * FROM contacts WHERE id = " +payload+ "", function (err, result, fields) {
             if (err) {
                 reject();
             } else {
                 accept(result);
             }
         });
+            let id = payload;
+        connection.query("DELETE FROM contacts WHERE id = " +id+ "", function (err, result, fields) {
+            if (err) {
+                reject();
+            } else {
+                accept(result);
+            }
+        });
+
+
     });
 
     const resultSet = await runQuery;
